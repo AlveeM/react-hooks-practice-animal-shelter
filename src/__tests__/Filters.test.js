@@ -10,7 +10,7 @@ const FILTERS_STATE = {
 test("calls the `onChangeType` prop callback when the animal type select changes", () => {
   const onChangeType = jest.fn();
   render(<Filters onChangeType={onChangeType} filters={FILTERS_STATE} />);
-  const select = screen.queryByLabelText("type");
+  const select = screen.queryByTestId("type");
   fireEvent.change(select, { target: { value: "dog" } });
   expect(onChangeType).toHaveBeenCalled();
 });

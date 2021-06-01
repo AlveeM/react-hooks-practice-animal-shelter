@@ -24,10 +24,9 @@ describe("Fetching pets", () => {
     render(<App />);
 
     let type = "micropig";
-    fireEvent.change(screen.getByLabelText(/type/), {
-      target: { value: type },
-    });
-
+    const select = screen.queryByTestId("type");
+    
+    fireEvent.change(select, { target: { value: type } });
     fireEvent.click(screen.getByText(/Find pets/));
 
     await screen.findAllByTestId("pet");
